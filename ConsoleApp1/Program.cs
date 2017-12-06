@@ -35,7 +35,7 @@ namespace ConsoleApp1
                         if (user.Pin == int.Parse(InfoLines[0]))
                         {
                             user.Balance = int.Parse(InfoLines[1]);
-                            Console.WriteLine("Sisestasite õige PIN-koodi.\nTeie arvel on " + user.Balance + " eurot.");
+                            Console.WriteLine("\nSisestasite õige PIN-koodi.\nTeie arvel on " + user.Balance + " eurot.");
                             Sees:
                             Console.WriteLine("\nSisestage funktsiooni järjekorranumber!\n1. Raha arvelt\n2. Raha arvele");
                             käsk = int.Parse(Console.ReadLine());
@@ -102,7 +102,7 @@ namespace ConsoleApp1
                     Console.WriteLine("Sisestasite vale käsu. Proovige uuesti");
                 }
             }
-            Console.WriteLine("Programm lõpetas töö");
+            Console.WriteLine("\nProgramm lõpetas töö.");
         }
     }
 }
