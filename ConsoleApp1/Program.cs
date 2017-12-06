@@ -80,9 +80,16 @@ namespace ConsoleApp1
                     user.Name = Console.ReadLine();
                     if (!File.Exists(folder + "\\" + user.Name + ".txt"))
                     {
-                        Console.WriteLine("\nSisestage PIN-kood");
+                        Console.WriteLine("Sisestage PIN-kood");
+                        Pin:
+                        Console.WriteLine("PIN-kood peab olema 4 sümboline.");
                         user.Pin = int.Parse(Console.ReadLine());
-                        File.WriteAllText(folder + "\\" + user.Name + ".txt", user.Pin + "\n0");
+                        if (Math.Floor(Math.Log10(user.Pin) + 1) != 4) goto Pin;
+                        else
+                        {
+                            File.WriteAllText(folder + "\\" + user.Name + ".txt", user.Pin + "\n0");
+                            Console.WriteLine("Kasutaja on loodud!");
+                        }
                     }
                     else Console.WriteLine("Niisugune konto on juba olemas!");
 
