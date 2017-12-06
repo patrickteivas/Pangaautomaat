@@ -10,6 +10,7 @@ namespace ConsoleApp1
     class AccInfo
     {
         string folder = Path.Combine(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "Kontod");
+        int x;
 
         public string Name { get; set; }
         public int Pin { get; set; }
@@ -25,7 +26,15 @@ namespace ConsoleApp1
 
         public void Withdraw()
         {
-            //TODO
+            Console.WriteLine("Kui palju Te tahate arvelt võtta? (Ainult täisarvud)");
+            x = int.Parse(Console.ReadLine());
+            if (x <= Balance)
+            {
+                Balance = Balance - x;
+                File.WriteAllText(folder + "\\" + Name + ".txt", Pin + "\n" + Balance);
+                Console.WriteLine("Teie uus balanss: " + Balance);
+            }
+            else Console.WriteLine("Teil pole nii palju raha!");
         }
     }
 }

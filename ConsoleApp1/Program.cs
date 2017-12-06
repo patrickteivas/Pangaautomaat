@@ -12,7 +12,9 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             string folder = Path.Combine(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, "Kontod");
+
             bool run = true;
+            string x;
 
             while (run == true)
             {
@@ -34,18 +36,30 @@ namespace ConsoleApp1
                         {
                             user.Balance = int.Parse(InfoLines[1]);
                             Console.WriteLine("Sisestasite õige PIN-koodi.\nTeie arvel on " + user.Balance + " eurot.");
+                            Sees:
                             Console.WriteLine("\nSisestage funktsiooni järjekorranumber!\n1. Raha arvelt\n2. Raha arvele");
                             käsk = int.Parse(Console.ReadLine());
                             if (käsk == 1)
                             {
                                 user.Withdraw();
-                                //TODO
+                                Console.WriteLine("Soovite jätkata? (Y/N)");
+                                x = Console.ReadLine();
+                                if (x == "Y")
+                                {
+                                    goto Sees;
+                                }
+                                else break;
                             }
                             else if (käsk == 2)
                             {
                                 user.Insert();
                                 Console.WriteLine("Soovite jätkata? (Y/N)");
-                                //TODO
+                                x = Console.ReadLine();
+                                if (x == "Y")
+                                {
+                                    goto Sees;
+                                }
+                                else break;
                             }
                             else
                             {
@@ -62,7 +76,19 @@ namespace ConsoleApp1
                 }
                 else if (käsk == 2)
                 {
-                    //Account register
+                    Console.WriteLine("\nSisestage kasutajanimi");
+                    user.Name = Console.ReadLine();
+                    if (!File.Exists(folder + "\\" + user.Name + ".txt"))
+                    {
+                        Console.WriteLine("\nSisestage PIN-kood");
+                        user.Pin = int.Parse(Console.ReadLine());
+                        File.WriteAllText(folder + "\\" + user.Name + ".txt", user.Pin + "\n0");
+                    }
+                    else Console.WriteLine("Niisugune konto on juba olemas!");
+
+                    Console.WriteLine("Soovite jätkata? (Y/N)");
+                    x = Console.ReadLine();
+                    if (x != "Y") break;
                 }
                 else
                 {
