@@ -10,8 +10,16 @@ namespace ConsoleApp1
     {
         public string Name { get; set; }
         public int Pin { get; set; }
-        public decimal Sum { get; set; }
+        public int Balance { get; set; }
 
+        public void Insert()
+        {
 
+        }
+
+        public void Withdraw()
+        {
+
+        }
     }
 }

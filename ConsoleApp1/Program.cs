@@ -32,9 +32,9 @@ namespace ConsoleApp1
                         string[] InfoLines = System.IO.File.ReadAllLines(folder + "\\" + user.Name + ".txt");
                         if (user.Pin == int.Parse(InfoLines[0]))
                         {
-                            user.Sum = decimal.Parse(InfoLines[1]);
-                            Console.WriteLine("Sisestasite õige PIN-koodi.\nTeie arvel on " + user.Sum + " eurot");
-                            Console.WriteLine("Sisestage funktsiooni järjekorranumber!\n1. Raha arvelt\n2. Raha arvele");
+                            user.Balance = int.Parse(InfoLines[1]);
+                            Console.WriteLine("Sisestasite õige PIN-koodi.\nTeie arvel on " + user.Balance + " eurot.");
+                            Console.WriteLine("\nSisestage funktsiooni järjekorranumber!\n1. Raha arvelt\n2. Raha arvele");
                             käsk = int.Parse(Console.ReadLine());
                             if (käsk == 1)
                             {
@@ -66,6 +66,7 @@ namespace ConsoleApp1
                     Console.WriteLine("Sisestasite vale käsu. Proovige uuesti");
                 }
             }
+            Console.WriteLine("Programm lõpetas töö");
         }
     }
 }
