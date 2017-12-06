@@ -59,7 +59,7 @@ namespace ConsoleApp1
                 }
                 else if (käsk == 2)
                 {
-                    //Accoune register
+                    //Account register
                 }
                 else
                 {
