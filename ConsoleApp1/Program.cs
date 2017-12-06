@@ -38,11 +38,14 @@ namespace ConsoleApp1
                             käsk = int.Parse(Console.ReadLine());
                             if (käsk == 1)
                             {
-                                //AccInfo.Withdraw();
+                                user.Withdraw();
+                                //TODO
                             }
                             else if (käsk == 2)
                             {
-                                //AccInfo.Insert();
+                                user.Insert();
+                                Console.WriteLine("Soovite jätkata? (Y/N)");
+                                //TODO
                             }
                             else
                             {
